@@ -1,11 +1,12 @@
 <script>
-import { getFlag } from '../../data/functions';
+import { getFlag, getPoster } from '../../data/functions';
 export default {
     props: {
         film: Object
     },
     methods: {
-        getFlag
+        getFlag,
+        getPoster
     },
 }
 </script>
@@ -15,6 +16,7 @@ export default {
         <li>{{ film.original_title }}</li>
         <li><i :class="getFlag(film.original_language)"></i></li>
         <li>{{ film.vote_average }}</li>
+        <li><img :src="getPoster(film.poster_path)" :alt="`Copertina di ${film.original_title}`"></li>
     </ul>
 </template>
 <style lang="scss">

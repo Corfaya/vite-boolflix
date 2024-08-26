@@ -1,3 +1,5 @@
+import { store } from "../store"
+
 function getFlag(lang) {
     switch (lang) {
         case "it":
@@ -29,4 +31,8 @@ function getFlag(lang) {
     }
 }
 
-export { getFlag }
+function getPoster(path) {
+    return `${store.imageEndpoint}w300${path}`
+}
+
+export { getFlag, getPoster }
