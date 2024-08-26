@@ -11,21 +11,33 @@ export default {
     },
     methods: {
         getFlag(lang) {
-            switch(lang) {
+            switch (lang) {
                 case "it":
-                return "fi fi-it"
+                    return "fi fi-it"
                 case "en":
-                return "fi fi-gb"
+                    return "fi fi-gb"
                 case "us":
-                return "fi fi-us"
+                    return "fi fi-us"
                 case "fr":
-                return "fi fi-fr"
+                    return "fi fi-fr"
                 case "es":
-                return "fi fi-es"
+                    return "fi fi-es"
                 case "pt":
-                return "fi fi-pt"
+                    return "fi fi-pt"
+                case "ja":
+                    return "fi fi-jp"
+                case "nl":
+                    return "fi fi-nl"
+                case "de":
+                    return "fi fi-de"
+                case "zh":
+                    return "fi fi-cn"
+                case "ru":
+                    return "fi fi-ru"
+                case "ko":
+                    return "fi fi-kr"
                 default:
-                break
+                    return "unknown"
             }
         }
     }
@@ -40,4 +52,11 @@ export default {
     </ul>
 </template>
 <style lang="scss">
+.unknown {
+    display: inline-block;
+    width: 20px;
+    height: 16px;
+    background-color: #fff;
+    border: 1px solid black;
+}
 </style>
