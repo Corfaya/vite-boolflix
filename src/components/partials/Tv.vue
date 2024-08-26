@@ -46,4 +46,11 @@ export default {
     </ul>
 </template>
 <style lang="scss">
+.unknown {
+    display: inline-block;
+    width: 20px;
+    height: 16px;
+    background-color: #fff;
+    border: 1px solid black;
+}
 </style>
