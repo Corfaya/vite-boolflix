@@ -7,8 +7,8 @@ export default {
         }
     },
     methods: {
-        reqMovie(movie){
-            this.$emit("getMovie", movie)
+        reqMovie(showName){
+            this.$emit("getMovie", showName)
         }
     }
 }
