@@ -12,7 +12,7 @@ export default {
 }
 </script>
 <template>
-    <ul v-for="film in movie" :key="movie.id">
+    <ul v-for="film in movie" :key="film.id">
         <li>{{ film.title }}</li>
         <li>{{ film.original_title }}</li>
         <li>{{ film.original_language }}</li>
