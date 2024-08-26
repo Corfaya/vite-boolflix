@@ -20,3 +20,10 @@ film trovato:
 - Invio una richiesta all'App.vue passando come parametro la stringa inserita dall'utente
 - In App.vue, eseguo la chiamata axios e popolo l'array vuoto, creato in store, con gli oggetti corrispondenti alla richiesta dell'utente
 - Creo la props per passare l'array al Main, dove popolo le ul con i dati richiesti
+
+# Milestone 2:
+Trasformiamo la stringa statica della lingua in una vera e propria bandiera della nazione corrispondente, gestendo il caso in cui non abbiamo la bandiera della nazione ritornata dall’API (le flag non ci sono in FontAwesome).
+
+- Installo il pacchetto flag icons
+- Creo in Main.vue una funzione con uno switch per modificare il valore delle classi in base alla lingua originale
+- Tramite binding, modifico le classi dell'icona per la bandiera
