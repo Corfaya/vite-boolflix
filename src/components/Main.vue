@@ -1,11 +1,22 @@
 <script>
+import { store } from '../store';
 export default {
-    
+    data() {
+        return {
+            store
+        }
+    },
+    props: {
+        movie: Array
+    }
 }
 </script>
 <template>
-    <ul>
-        <li></li>
+    <ul v-for="film in movie" :key="movie.id">
+        <li>{{ film.title }}</li>
+        <li>{{ film.original_title }}</li>
+        <li>{{ film.original_language }}</li>
+        <li>{{ film.vote_average }}</li>
     </ul>
 </template>
 <style lang="scss">

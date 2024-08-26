@@ -19,3 +19,4 @@ film trovato:
 - Creo una direttiva v-model alla quale associo una variabile stringa vuota contenuta in store.js
 - Invio una richiesta all'App.vue passando come parametro la stringa inserita dall'utente
 - In App.vue, eseguo la chiamata axios e popolo l'array vuoto, creato in store, con gli oggetti corrispondenti alla richiesta dell'utente
+- Creo la props per passare l'array al Main, dove popolo le ul con i dati richiesti
