@@ -13,3 +13,6 @@ film trovato:
 2. Titolo Originale
 3. Lingua
 4. Voto
+
+- Creo delle componenti Header e Main
+- Nell'Header, creo un campo input e un button per la ricerca di un film
