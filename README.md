@@ -16,3 +16,6 @@ film trovato:
 
 - Creo delle componenti Header e Main
 - Nell'Header, creo un campo input e un button per la ricerca di un film
+- Creo una direttiva v-model alla quale associo una variabile stringa vuota contenuta in store.js
+- Invio una richiesta all'App.vue passando come parametro la stringa inserita dall'utente
+- In App.vue, eseguo la chiamata axios e popolo l'array vuoto, creato in store, con gli oggetti corrispondenti alla richiesta dell'utente
