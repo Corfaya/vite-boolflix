@@ -15,7 +15,7 @@ export default {
 </script>
 <template>
     <div class="container-fluid">
-        <input type="text" placeholder="Search" v-model="store.clientInput">
+        <input @keyup.enter="reqMovie(store.clientInput)" type="text" placeholder="Search" v-model="store.clientInput">
         <button @click="reqMovie(store.clientInput)">Cerca</button>
     </div>
 </template>
