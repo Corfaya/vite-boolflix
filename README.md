@@ -35,5 +35,11 @@ Allarghiamo poi la ricerca anche alle serie tv. Con la stessa azione di ricerca 
 - In App.vue, eseguo una richiesta axios e salvo i risultati nel nuovo array
     - Invio tramite props a Main.vue il nuovo array
 - In Main.vue creo due cicli, uno per i film e l'altro per le serie, nei tag delle componenti figlie
-    - Tramite props, passo l'elemento ciclato ai figli
+    - Tramite props, passo l'elemento cliccato ai figli
 - In TV e in MOVIE sposto le mie funzioni per visualizzare le bandiere e aggiungo le liste richieste
+
+Aggiungiamo la copertina del film o della serie al nostro elenco.
+
+- Aggiungo una funzione getPoster a functions.js
+    - Richiamo l'endpoint per il recupero delle immagini, aggiungo la dimensione e infine il path
+    - Chiamo le funzioni nei methods di Tv.vue e Movie.vue, usandoli in una li contenente l'immagine corrispettiva al film / alla serie TV
