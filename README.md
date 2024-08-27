@@ -58,3 +58,14 @@ Trasformiamo quello che abbiamo fatto fino ad ora in una vera e propria webapp, 
 ● Dopo aver ricercato qualcosa nella searchbar, i risultati appaiono sotto forma di “card” in cui lo sfondo è rappresentato dall’immagine di copertina (consiglio
 la poster_path con w342)
 ● Andando con il mouse sopra una card (on hover), appaiono le informazioni aggiuntive già prese nei punti precedenti più la overview
+
+# WHAT I LEARNT TODAY
+
+- (1) window è l'oggetto globale del browser. Effettuando una stampa su console tramite console.log() ho potuto recuperare le proprietà di scrolling. Su https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollY ho letto che scrollY e scrollX restituiscono un numero in px indicante quanto il documento viene fatto scorrere, rispettivamente, verticalmente e orizzontalmente (quindi così ho la distanza tra la parte superiore della finestra del browser e la parte superiore della viewport corrente).
+Aggiungendo come condizione del toggle (vedi punto 2) window.scrollY > 0, ho potuto aggiungere una transizione al momento dello scrolling, tentando di emulare il sito di Netflix.
+
+- (2) toggle() può avere 2 parametri: la classe da aggiungere/rimuovere e il booleano: se true aggiuge, se false rimuove. Quindi:
+    - element.classList.toggle("class_name", boolean_condition)
+Nel mio caso, ho voluto cambiare la classe dell'header in basee alla posizione dello scroll: come se avessi scritto:
+    if (window.scrollY > 0) { header.classList.add("scrolled")}
+    else { header.classList.remove("scrolled")}

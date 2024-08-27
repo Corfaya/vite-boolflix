@@ -6,16 +6,24 @@ export default {
             store
         }
     },
+    created() {
+        window.addEventListener("scroll", this.scrollEffect)
+    },
     methods: {
         reqMovie(showName) {
             this.$emit("getMovie", showName)
             this.store.clientInput = ""
+        },
+        // readme.md last paragraph
+        scrollEffect() {
+            const header = document.querySelector("header")
+            header.classList.toggle("scrolling", window.scrollY > 0)
         }
     }
 }
 </script>
 <template>
-    <header class="py-3">
+    <header class="p-4">
         <div class="container-fluid">
             <div class="d-flex justify-content-between">
                 <div class="w-logo">
@@ -33,6 +41,15 @@ export default {
 </template>
 <style lang="scss">
 header {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    background-color: transparent;
+    transition: background-color 0.5s ease;
+
+    &.scrolling {
+        background-color: #000;
+    }
     .w-logo {
         max-width: 150px;
     }
