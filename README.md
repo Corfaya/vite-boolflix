@@ -69,3 +69,6 @@ Aggiungendo come condizione del toggle (vedi punto 2) window.scrollY > 0, ho pot
 Nel mio caso, ho voluto cambiare la classe dell'header in basee alla posizione dello scroll: come se avessi scritto:
     if (window.scrollY > 0) { header.classList.add("scrolled")}
     else { header.classList.remove("scrolled")}
+
+- (3) Per legare le classi statiche a quelle dinamiche, si può usare un array di classi, del tipo:
+    :class="['classe-statica1', 'classe-statica2', 'classe-staticaN', {'classe-dinamica' : condizione}]"

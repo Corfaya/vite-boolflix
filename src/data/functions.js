@@ -33,7 +33,7 @@ function getFlag(lang) {
 
 function getPoster(path) {
     if (path == null) {
-        return "https://placehold.co/300x450?text=Cover%20not%20found"
+        return "https://placehold.co/300x400?text=Cover%20not%20found"
     }
     else {
         return `${store.imageEndpoint}w300${path}`

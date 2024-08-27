@@ -12,7 +12,6 @@ export default {
 }
 </script>
 <template>
-    <ul class="list-unstyled">
         <!-- <li>{{ serie.name }}</li>
         <li>{{ serie.original_name }}</li>
         <li><i :class="getFlag(serie.original_language)"></i></li>
@@ -20,10 +19,24 @@ export default {
             <i v-for="vote in rating(serie.vote_average)" :key="`${vote}-${serie.id}`" class="fa-solid fa-star"></i>
             <i v-for="vote in (5 - rating(serie.vote_average))" :key="`void-${vote}-${serie.id}`" class="fa-regular fa-star"></i>
         </li> -->
-        <li><img :src="getPoster(serie.poster_path)" :alt="`Copertina di ${serie.original_name}`"></li>
-    </ul>
+        
+        <div class="cover-box position-relative">
+            <img class="py-3" :src="getPoster(serie.poster_path)" :alt="`Copertina di ${serie.original_name}`">
+        </div>
+
 </template>
 <style lang="scss">
+.cover-box {
+    cursor: pointer;
+    overflow: hidden;
+    width: 100%;
+    height: 400px;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
 .unknown {
     display: inline-block;
     width: 20px;
