@@ -35,4 +35,8 @@ function getPoster(path) {
     return `${store.imageEndpoint}w300${path}`
 }
 
-export { getFlag, getPoster }
+function rating(stars) {
+    return Math.round(stars / 2)
+}
+
+export { getFlag, getPoster, rating }

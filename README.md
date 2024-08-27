@@ -38,8 +38,15 @@ Allarghiamo poi la ricerca anche alle serie tv. Con la stessa azione di ricerca 
     - Tramite props, passo l'elemento cliccato ai figli
 - In TV e in MOVIE sposto le mie funzioni per visualizzare le bandiere e aggiungo le liste richieste
 
+# Milestone 3:
 Aggiungiamo la copertina del film o della serie al nostro elenco.
 
 - Aggiungo una funzione getPoster a functions.js
     - Richiamo l'endpoint per il recupero delle immagini, aggiungo la dimensione e infine il path
     - Chiamo le funzioni nei methods di Tv.vue e Movie.vue, usandoli in una li contenente l'immagine corrispettiva al film / alla serie TV
+
+Trasformiamo poi il voto da 1 a 10 decimale in un numero intero da 1 a 5, così da permetterci di stampare a schermo un numero di stelle piene che vanno da 1 a 5, lasciando le restanti vuote (troviamo le icone in FontAwesome). Arrotondiamo sempre per eccesso all’unità successiva, non gestiamo icone mezze piene
+
+- Creo una funzione in functions.js per convertire il voto in quinti (e arrotondato all'intero più vicino con Math.round())
+- Chiamo la funzione in Tv.vue e Movie.vue
+- Creo due cicli per le stelle piene e le stelle vuote in base al rating del film / dello show TV

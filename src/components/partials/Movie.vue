@@ -1,13 +1,14 @@
 <script>
-import { getFlag, getPoster } from '../../data/functions';
+import { getFlag, getPoster, rating } from '../../data/functions';
 export default {
     props: {
         film: Object
     },
     methods: {
         getFlag,
-        getPoster
-    },
+        getPoster,
+        rating
+    }
 }
 </script>
 <template>
@@ -15,7 +16,9 @@ export default {
         <li>{{ film.title }}</li>
         <li>{{ film.original_title }}</li>
         <li><i :class="getFlag(film.original_language)"></i></li>
-        <li>{{ film.vote_average }}</li>
+        <li><i v-for="vote in rating(film.vote_average)" :key="`${vote}-${film.id}`" class="fa-solid fa-star"></i>
+            <i v-for="vote in (5 - rating(film.vote_average))" :key="`void-${vote}-${film.id}`" class="fa-regular fa-star"></i>
+        </li>
         <li><img :src="getPoster(film.poster_path)" :alt="`Copertina di ${film.original_title}`"></li>
     </ul>
 </template>
