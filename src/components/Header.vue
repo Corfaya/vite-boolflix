@@ -23,7 +23,7 @@ export default {
 }
 </script>
 <template>
-    <header class="p-4">
+    <header class="p-3">
         <div class="container-fluid">
             <div class="d-flex justify-content-between">
                 <div class="w-logo">
@@ -32,7 +32,7 @@ export default {
                 <div class="input-group mb-3 w-form">
                     <input class="form-control" @keyup.enter="reqMovie(store.clientInput)" type="text" placeholder="Movies or series tonight?"
                         v-model="store.clientInput">
-                    <button class="btn btn-outline-secondary" type="button"
+                    <button class="btn btn-outline-secondary text-light" type="button"
                         @click="reqMovie(store.clientInput)"><i class="fa-solid fa-magnifying-glass"></i> Cerca</button>
                 </div>
             </div>

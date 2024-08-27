@@ -12,14 +12,14 @@ export default {
 }
 </script>
 <template>
-    <ul>
-        <li>{{ serie.name }}</li>
+    <ul class="list-unstyled">
+        <!-- <li>{{ serie.name }}</li>
         <li>{{ serie.original_name }}</li>
         <li><i :class="getFlag(serie.original_language)"></i></li>
         <li>
             <i v-for="vote in rating(serie.vote_average)" :key="`${vote}-${serie.id}`" class="fa-solid fa-star"></i>
             <i v-for="vote in (5 - rating(serie.vote_average))" :key="`void-${vote}-${serie.id}`" class="fa-regular fa-star"></i>
-        </li>
+        </li> -->
         <li><img :src="getPoster(serie.poster_path)" :alt="`Copertina di ${serie.original_name}`"></li>
     </ul>
 </template>

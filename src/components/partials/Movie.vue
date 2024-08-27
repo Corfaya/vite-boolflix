@@ -12,13 +12,13 @@ export default {
 }
 </script>
 <template>
-    <ul>
-        <li>{{ film.title }}</li>
+    <ul class="list-unstyled">
+        <!-- <li>{{ film.title }}</li>
         <li>{{ film.original_title }}</li>
         <li><i :class="getFlag(film.original_language)"></i></li>
         <li><i v-for="vote in rating(film.vote_average)" :key="`${vote}-${film.id}`" class="fa-solid fa-star text-warning"></i>
             <i v-for="vote in (5 - rating(film.vote_average))" :key="`void-${vote}-${film.id}`" class="fa-regular fa-star text-body-tertiary"></i>
-        </li>
+        </li> -->
         <li><img :src="getPoster(film.poster_path)" :alt="`Copertina di ${film.original_title}`"></li>
     </ul>
 </template>
