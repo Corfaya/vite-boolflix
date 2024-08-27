@@ -3,7 +3,9 @@ import { getFlag, getPoster, rating } from '../../data/functions';
 export default {
     data() {
         return {
+            // info visibility
             infoVisible: false,
+            // modal visibility
             onScreen: false
         }
     },
@@ -14,40 +16,92 @@ export default {
         getFlag,
         getPoster,
         rating,
+        // method for modal visibility
         expand() {
             this.onScreen = !this.onScreen
+            if (this.onScreen) {
+                // scroll disable when modal is visible
+                document.body.style.overflow = "hidden"
+            } else {
+                // scroll enabled when modal isn't visible
+                document.body.style.overflow = "auto"
+            }
         }
     }
 }
 </script>
 <template>
-    <!-- readme.md -->
-    <div :class="['position-relative', 'movie-card', {'full-screen' : onScreen}]" @mouseover="infoVisible = true" @mouseout="infoVisible = false">
-        <div class="cover-box position-relative">
-            <img class="py-3" :src="getPoster(film.poster_path)" :alt="`Copertina di ${film.original_title}`">
-            <div :class="['info', 'position-absolute', 'text-white', 'd-flex', 'flex-column', { 'infoOnScreen': onScreen || infoVisible }]"> 
-                <h5 class="text-center">Titolo: {{ film.title }}</h5>
-                <h6 class="text-center">Tit. originale: {{ film.original_title }}</h6>
-                <div class="d-flex justify-content-between">
-                    <span>Lang: <i :class="getFlag(film.original_language)"></i></span>
-                    <span>
-                        <i v-for="vote in rating(film.vote_average)" :key="`${vote}-${film.id}`"
-                            class="fa-solid fa-star text-warning"></i>
-                        <i v-for="vote in (5 - rating(film.vote_average))" :key="`void-${vote}-${film.id}`"
-                            class="fa-regular fa-star text-white"></i>
-                    </span>
-                </div>
-                <p>{{ film.overview }}</p>
-                <div class="d-flex justify-content-center">
-                    <button @click="expand" class="btn btn-sm btn-light expand">{{ onScreen ? "Torna indietro" : "Scopri di più" }}</button>
+    <div>
+        <!-- BS MODAL: modal for overlay, modal-dialog and modal-lg for modal-window container -->
+         <!-- Modal is visible only if onScreen = true -->
+        <div v-if="onScreen" class="modal fade show d-flex align-items-center justify-content-center"
+             @click.self="expand">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Titolo: {{ film.title }}</h5>
+                        <!-- BS button to close modal clicking on "x" -->
+                        <button type="button" class="btn-close" aria-label="Close"
+                            @click="expand"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img class="py-3" :src="getPoster(film.poster_path)"
+                            :alt="`Copertina di ${film.original_title}`">
+                        <div class="d-flex justify-content-between">
+                            <span>Lang: <i :class="getFlag(film.original_language)"></i></span>
+                            <span>
+                                <i v-for="vote in rating(film.vote_average)" :key="`${vote}-${film.id}`"
+                                    class="fa-solid fa-star text-warning"></i>
+                                <i v-for="vote in (5 - rating(film.vote_average))" :key="`void-${vote}-${film.id}`"
+                                    class="fa-regular fa-star text-white"></i>
+                            </span>
+                        </div>
+                        <p>{{ film.overview }}</p>
+                    </div>
                 </div>
             </div>
         </div>
+
+        
+        <!-- mouseover/mouseout to handle hover -->
+        <div class="position-relative movie-card" @mouseover="infoVisible = true"
+            @mouseout="infoVisible = false">
+
+            <div class="cover-box position-relative">
+                <img class="py-3" :src="getPoster(film.poster_path)" :alt="`Copertina di ${film.original_title}`">
+                <div
+                    :class="['info', 'position-absolute', 'text-white', 'd-flex', 'flex-column', { 'infoOnScreen': onScreen || infoVisible }]">
+                    <h5 class="text-center">Titolo: {{ film.title }}</h5>
+                    <h6 class="text-center">Tit. originale: {{ film.original_title }}</h6>
+                    <div class="d-flex justify-content-between">
+                        <span>Lang: <i :class="getFlag(film.original_language)"></i></span>
+                        <span>
+                            <i v-for="vote in rating(film.vote_average)" :key="`${vote}-${film.id}`"
+                                class="fa-solid fa-star text-warning"></i>
+                            <i v-for="vote in (5 - rating(film.vote_average))" :key="`void-${vote}-${film.id}`"
+                                class="fa-regular fa-star text-white"></i>
+                        </span>
+                    </div>
+                    <p>{{ film.overview = "" ? "No overview" : film.overview }}</p>
+                    <div class="d-flex justify-content-center">
+                        <button @click="expand" class="btn btn-sm btn-light expand">Scopri di più</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </template>
 <style lang="scss">
+.modal.fade.show {
+    background-color: #1c1c1cb3;
+}
+
+.modal-content {
+    padding: 30px;
+}
+
 .movie-card {
-    cursor: pointer;
     overflow: hidden;
     width: 100%;
     height: 400px;
@@ -67,11 +121,11 @@ export default {
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 400px;
             background-color: #dc1a27d3;
             padding: 5px 6px;
             opacity: 0;
-            transition: opacity 0.5s ease;
+            transition: all 0.5s ease;
 
             &.infoOnScreen {
                 opacity: 1;
@@ -88,7 +142,7 @@ export default {
 
             p {
                 margin-top: 3px;
-                max-height: 150px;
+                max-height: 130px;
                 overflow: hidden;
             }
 
@@ -104,24 +158,8 @@ export default {
         opacity: 1
     }
 
-    &:hover .info .expand, .full-screen .expand {
-        display: block;
-    }
-
-    &.full-screen {
-        position: fixed;
-        top: 0;
-        left: 0;
-        min-width: 500px;
-        max-width: 800px;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.8);
-        z-index: 3;
-
-        .info {
-            overflow-y: auto;
-            padding: 30px;
-        }
+    &:hover .expand, .infoOnScreen .expand {
+        display: block !important;
     }
 
     .unknown {
