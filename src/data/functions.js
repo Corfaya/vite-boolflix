@@ -32,7 +32,13 @@ function getFlag(lang) {
 }
 
 function getPoster(path) {
-    return `${store.imageEndpoint}w300${path}`
+    if (path == null) {
+        return "https://placehold.co/300x450?text=Cover%20not%20found"
+    }
+    else {
+        return `${store.imageEndpoint}w300${path}`
+    }
+    
 }
 
 function rating(stars) {
