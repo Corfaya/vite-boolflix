@@ -53,7 +53,7 @@ export default {
                                 <i v-for="vote in rating(film.vote_average)" :key="`${vote}-${film.id}`"
                                     class="fa-solid fa-star text-warning"></i>
                                 <i v-for="vote in (5 - rating(film.vote_average))" :key="`void-${vote}-${film.id}`"
-                                    class="fa-regular fa-star text-white"></i>
+                                    class="fa-regular fa-star text-dark"></i>
                             </span>
                         </div>
                         <p>{{ film.overview }}</p>
@@ -99,6 +99,12 @@ export default {
 
 .modal-content {
     padding: 30px;
+
+    .modal-body {
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
 }
 
 .movie-card {
