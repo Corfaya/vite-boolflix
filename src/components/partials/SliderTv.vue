@@ -26,9 +26,9 @@ export default {
 </script>
 <template>
     <!-- BOOTSTRAP Carousel with changes -->
-    <div id="carousel-move" class="carousel slide" data-bs-ride="carousel">
+    <div id="carousel-move-2" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button v-for="(serie, i) in slidesTotal" :key="i" type="button" data-bs-target="#carousel-move"
+            <button v-for="(serie, i) in slidesTotal" :key="i" type="button" data-bs-target="#carousel-move-2"
                 :data-bs-slide-to="i" class="active"></button>
         </div>
         <div class="carousel-inner">
@@ -43,11 +43,11 @@ export default {
                 </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-move" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-move-2" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carousel-move" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel-move-2" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
