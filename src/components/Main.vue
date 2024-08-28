@@ -1,5 +1,6 @@
 <script>
 import { store } from '../store';
+import { getTopMovies, getTopSeries } from '../data/apis';
 import Tv from './partials/Tv.vue';
 import Movie from './partials/Movie.vue';
 import SliderMovie from './partials/SliderMovie.vue';
@@ -19,6 +20,10 @@ export default {
     props: {
         movies: Array,
         series: Array
+    },
+    created() {
+        getTopMovies(),
+        getTopSeries()
     }
 }
 </script>
@@ -26,6 +31,7 @@ export default {
 
     <main class="pt-main">
         <div class="container">
+            <!-- Movies slider -->
             <div class="row">
                 <div class="col-12">
                     <h2 class="text-light">I film più amati</h2>
@@ -33,9 +39,10 @@ export default {
             </div>
             <div class="row">
                 <div class="col-12">
-                    <SliderMovie />
+                    <SliderMovie :topMovies="store.topMovies"/>
                 </div>
             </div>
+            <!-- Tvs slider -->
             <div class="row">
                 <div class="col-12">
                     <h2 class="text-light">Le serie più amate</h2>
@@ -43,7 +50,7 @@ export default {
             </div>
             <div class="row">
                 <div class="col-12">
-                    <SliderTv />
+                    <SliderTv :topSeries="store.topSeries"/>
                 </div>
             </div>
             <div class="row">
