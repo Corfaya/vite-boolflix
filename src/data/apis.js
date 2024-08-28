@@ -24,7 +24,7 @@ export function getTopMovies() {
 
 export function getTopSeries() {
     let urlTopSeries = `${store.endpoint}${store.popSeries}${store.keyApi}`
-    AxiosHeaders.get(urlTopSeries).then((res) => {
+    axios.get(urlTopSeries).then((res) => {
         store.topSeries = res.data.results
         console.log(store.topSeries)
     })
