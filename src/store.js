@@ -6,7 +6,11 @@ export const store = reactive({
     keyApi: "?api_key=747394736cc143b01facf6a72cd532fe",
     searchMovie: "/search/movie",
     searchTv: "/search/tv",
+    popMovies: "/movie/popular",
+    popSeries: "/tv/popular",
     moviesArray: [],
     seriesArray: [],
+    topMovies: [],
+    topSeries: [],
     clientInput: ""
 })

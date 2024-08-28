@@ -13,3 +13,19 @@ export function getShows(showName) {
         console.log(store.seriesArray)
       })
 }
+
+export function getTopMovies() {
+    let urlTopMovies = `${store.endpoint}${store.popMovies}${store.keyApi}`
+    axios.get(urlTopMovies).then((res) => {
+        store.topMovies = res.data.results
+        console.log(store.topMovies)
+    })
+}
+
+export function getTopSeries() {
+    let urlTopSeries = `${store.endpoint}${store.popSeries}${store.keyApi}`
+    AxiosHeaders.get(urlTopSeries).then((res) => {
+        store.topSeries = res.data.results
+        console.log(store.topSeries)
+    })
+}
