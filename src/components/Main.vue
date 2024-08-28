@@ -56,25 +56,27 @@ export default {
             <div class="row">
                 <div class="col-12">
                     <h2 class="text-light">Film</h2>
+                    <h5 v-if="!movies || movies.length == 0" class="text-light">Qui visualizzerai i film che stai cercando. Effettua prima una ricerca</h5>
                 </div>
 
             </div>
 
             <div class="row">
-                <div class="col-6 col-md-4 col-lg-3" v-for="film in movies" :key="film.id">
+                <div v-if="movies && movies.length > 0" class="col-6 col-md-4 col-lg-3" v-for="film in movies" :key="film.id">
                     <Movie :film="film" />
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-12">
-                    <h2 class="text-light">Serie TV</h2>
+                    <h2 class="text-light my-5">Serie TV</h2>
+                    <h5 v-if="!series || series.length == 0" class="text-light">Qui visualizzerai le serie che stai cercando. Effettua prima una ricerca</h5>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-6 col-md-4 col-lg-3" v-for="serie in series" :key="serie.id">
-                    <Tv :serie="serie" />
+                    <Tv v-if="series && series.length > 0" :serie="serie" />
                 </div>
             </div>
 
