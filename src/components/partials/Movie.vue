@@ -82,7 +82,7 @@ export default {
                                 class="fa-regular fa-star text-white"></i>
                         </span>
                     </div>
-                    <p>{{ film.overview = "" ? "No overview" : film.overview }}</p>
+                    <p>{{ film.overview }}</p>
                     <div class="d-flex justify-content-center">
                         <button @click="expand" class="btn btn-sm btn-light expand">Scopri di più</button>
                     </div>
@@ -92,7 +92,7 @@ export default {
 
     </div>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
 .modal.fade.show {
     background-color: #1c1c1cb3;
 }
