@@ -14,7 +14,6 @@ export default {
             this.$emit("getMovie", showName)
             this.store.clientInput = ""
         },
-        // readme.md last paragraph
         scrollEffect() {
             const header = document.querySelector("header")
             header.classList.toggle("scrolling", window.scrollY > 0)

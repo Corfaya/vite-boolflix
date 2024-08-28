@@ -92,7 +92,7 @@ export default {
     </div>
 
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
 .modal.fade.show {
     background-color: #1c1c1cb3;
 }
